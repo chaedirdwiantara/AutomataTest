@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {API} from '../../utils/constant';
+import {useDispatch, useSelector} from 'react-redux';
+import {getDataRuma} from '../../actions/getData';
 
 const ProductList = props => {
+  const dispatch = useDispatch();
+  const DataRumaReducer = useSelector(
+    state => state.DataRumaReducer.getDataRumaResult,
+  );
+  console.log(DataRumaReducer, 'DataRumaReducer');
+
   useEffect(() => {
-    API.get('products', {per_page: 30})
-      .then(data => {
-        console.log(data, 'products');
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    dispatch(getDataRuma());
   }, []);
 
   return (
