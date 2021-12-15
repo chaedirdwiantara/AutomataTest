@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {API} from '../../utils/constant';
 
 const ProductList = props => {
+  useEffect(() => {
+    API.get('products', {per_page: 30})
+      .then(data => {
+        console.log(data, 'products');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
   return (
-    <TouchableOpacity
-      style={styles.pages}
-      onPress={() => props.navigation.navigate('ProductDetail')}>
-      <Text>Product List Page</Text>
-    </TouchableOpacity>
+    <View style={styles.pages}>
+      <Text onPress={() => props.navigation.navigate('ProductDetail')}>
+        Product List Page
+      </Text>
+    </View>
   );
 };
 
