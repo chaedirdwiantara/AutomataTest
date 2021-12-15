@@ -1,4 +1,5 @@
-import Home from './Home';
+import ProductList from './Home';
 import Splash from './Splash';
+import ProductDetail from './ProductDetails';
 
-export {Home, Splash};
+export {ProductList, Splash, ProductDetail};

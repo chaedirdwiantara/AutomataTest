@@ -4,12 +4,12 @@ import {StyleSheet, Text, View} from 'react-native';
 const Splash = props => {
   useEffect(() => {
     setTimeout(() => {
-      props.navigation.replace('Home');
+      props.navigation.replace('ProductList');
     }, 3000);
   }, []);
   return (
     <View style={styles.pages}>
-      <Text>Yo wassap ini spash</Text>
+      <Text>Yo wassap ini splash</Text>
     </View>
   );
 };

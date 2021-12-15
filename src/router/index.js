@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Home, Splash} from '../pages';
+import {ProductList, Splash, ProductDetail} from '../pages';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,9 +13,14 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="ProductList"
+        component={ProductList}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={{headerShown: true, title: 'Ruma Benda'}}
       />
     </Stack.Navigator>
   );

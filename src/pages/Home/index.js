@@ -1,15 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const Home = () => {
+const ProductList = props => {
   return (
-    <View style={styles.pages}>
-      <Text>Yo wassap ini Home</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.pages}
+      onPress={() => props.navigation.navigate('ProductDetail')}>
+      <Text>Product List Page</Text>
+    </TouchableOpacity>
   );
 };
 
-export default Home;
+export default ProductList;
 
 const styles = StyleSheet.create({
   pages: {
