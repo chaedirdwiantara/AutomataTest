@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const ProductDetail = () => {
+const ProductDetail = props => {
+  const item = props.route.params.item;
   return (
     <View style={styles.pages}>
       <Text>Product DETAIL Page</Text>

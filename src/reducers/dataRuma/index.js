@@ -9,7 +9,6 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_DATA_RUMA:
-      console.log(state, 'masuk');
       return {
         ...state,
         getDataRumaLoading: action.payload.loading,
