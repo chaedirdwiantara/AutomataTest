@@ -60,14 +60,19 @@ const styles = StyleSheet.create({
   container: {
     height: responsiveHeight(60),
     marginTop: 15,
-    // marginHorizontal: 30,
     marginBottom: 20,
     width: '100%',
-    backgroundColor: 'green',
     flexDirection: 'row',
     borderRadius: 30,
-    borderColor: '#60AF20',
-    borderWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   searchSection: {
     flex: 8,
@@ -87,8 +92,8 @@ const styles = StyleSheet.create({
     flex: 2,
     borderTopRightRadius: 30,
     borderBottomRightRadius: 30,
-    borderColor: '#60AF20',
+    borderColor: '#E5E5E5',
     borderLeftWidth: 1,
-    backgroundColor: 'yellow',
+    backgroundColor: 'grey',
   },
 });

@@ -1,10 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import {SearchData} from '..';
-import {sortNameASC, sortNameDSC} from '../../../utils';
+import {Jarak} from '../..';
+import {responsiveHeight, sortNameASC, sortNameDSC} from '../../../utils';
 
 const ListRuma = ({navigation, DataRuma}) => {
-  // console.log(DataRuma, 'yo ruma');
+  console.log(DataRuma, 'yo ruma');
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState(0);
 
@@ -46,15 +54,31 @@ const ListRuma = ({navigation, DataRuma}) => {
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('ProductDetail', {item});
-              }}
-              style={styles.touchable}>
-              <Text style={{color: 'grey', fontWeight: 'bold'}}>
-                {item.name.toUpperCase()}, {item.date_created.split('T')[0]}
-              </Text>
-            </TouchableOpacity>
+            <>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('ProductDetail', {item});
+                }}
+                style={styles.cardContainer}>
+                <View style={styles.imgContainer}>
+                  <Image
+                    source={{uri: item.images[0].src}}
+                    style={styles.gambar}
+                  />
+                </View>
+                <View style={styles.desc}>
+                  <Text
+                    numberOfLines={1}
+                    style={{color: 'grey', fontWeight: 'bold', fontSize: 20}}>
+                    {item.name.toUpperCase()}
+                  </Text>
+                  <Text style={{color: 'grey', fontWeight: 'bold'}}>
+                    {item.date_created.split('T')[0]}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+              <Jarak height={30} />
+            </>
           )}
         />
       ) : (
@@ -68,15 +92,48 @@ export default ListRuma;
 
 const styles = StyleSheet.create({
   container: {
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
     flex: 1,
     paddingHorizontal: 16,
     marginTop: 10,
   },
-  loading: {
-    flex: 1,
-    marginTop: 10,
-    marginBottom: 30,
+  cardContainer: {
+    marginHorizontal: 5,
+    height: responsiveHeight(400),
+    backgroundColor: 'white',
+    borderRadius: 10,
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  imgContainer: {
+    marginHorizontal: responsiveHeight(7),
+    alignItems: 'center',
+    alignSelf: 'center',
+    width: '100%',
+  },
+  gambar: {
+    width: '100%',
+    height: responsiveHeight(200),
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+  },
+  desc: {
+    position: 'absolute',
+    bottom: 0,
+    height: responsiveHeight(210),
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    width: '100%',
+    backgroundColor: '#F5F5F5',
+    // justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    padding: 20,
   },
 });

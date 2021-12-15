@@ -9,7 +9,7 @@ const Splash = props => {
   }, []);
   return (
     <View style={styles.pages}>
-      <Text>Yo wassap ini splash</Text>
+      <Text style={styles.text}>Powered by</Text>
     </View>
   );
 };
@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#3985AD',
+  },
+  text: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
