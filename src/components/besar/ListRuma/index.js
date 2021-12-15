@@ -120,14 +120,14 @@ const styles = StyleSheet.create({
   },
   gambar: {
     width: '100%',
-    height: responsiveHeight(200),
+    height: responsiveHeight(250),
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
   },
   desc: {
     position: 'absolute',
     bottom: 0,
-    height: responsiveHeight(210),
+    height: responsiveHeight(180),
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     width: '100%',

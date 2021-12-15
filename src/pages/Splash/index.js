@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {IconAppTitle, IconLogo} from '../../assets';
+import {Jarak} from '../../components';
 
 const Splash = props => {
   useEffect(() => {
@@ -9,7 +11,13 @@ const Splash = props => {
   }, []);
   return (
     <View style={styles.pages}>
-      <Text style={styles.text}>Powered by</Text>
+      <Jarak height={120} />
+      <IconAppTitle />
+      <View style={styles.footScr}>
+        <Text style={styles.text}>Powered by</Text>
+        <Jarak width={10} />
+        <IconLogo />
+      </View>
     </View>
   );
 };
@@ -20,12 +28,16 @@ const styles = StyleSheet.create({
   pages: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     backgroundColor: '#3985AD',
+    paddingBottom: 80,
   },
   text: {
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  footScr: {
+    flexDirection: 'row',
   },
 });

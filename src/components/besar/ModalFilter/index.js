@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, Text, Button} from 'react-native';
-import {Modal} from '@ui-kitten/components';
+import {StyleSheet, View, Text} from 'react-native';
+import {Modal, Button} from '@ui-kitten/components';
+import {Jarak} from '../..';
 
 const ModalFilter = ({open, onClose, sortNameAZ, sortNameZA}) => {
-  const ditekan = item => {
-    console.log('haiii', item);
-  };
+  const [colorButton, setColorButton] = useState('');
+
   return (
     <Modal
       visible={open}
@@ -18,16 +18,21 @@ const ModalFilter = ({open, onClose, sortNameAZ, sortNameZA}) => {
         onPress={() => {
           sortNameAZ();
           onClose();
+          setColorButton(1);
         }}
-        title="Name A-Z"
-      />
+        status={colorButton == 1 ? 'success' : 'primary'}>
+        Name A-Z
+      </Button>
+      <Jarak height={15} />
       <Button
         onPress={() => {
           sortNameZA();
           onClose();
+          setColorButton(2);
         }}
-        title="Name Z-A"
-      />
+        status={colorButton == 2 ? 'success' : 'primary'}>
+        Name Z-A
+      </Button>
     </Modal>
   );
 };
@@ -40,6 +45,7 @@ const styles = StyleSheet.create({
     height: '70%',
     width: '92%',
     borderRadius: 20,
+    justifyContent: 'center',
     alignItems: 'center',
     padding: 15,
   },
