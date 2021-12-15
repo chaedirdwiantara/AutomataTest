@@ -8,7 +8,8 @@ import {
   Image,
 } from 'react-native';
 import {SearchData} from '..';
-import {Jarak} from '../..';
+import {IconRuang, Jarak} from '../..';
+import {IconBathroom, IconBed, IconFloor} from '../../../assets/icons';
 import {responsiveHeight, sortNameASC, sortNameDSC} from '../../../utils';
 
 const ListRuma = ({navigation, DataRuma}) => {
@@ -75,6 +76,8 @@ const ListRuma = ({navigation, DataRuma}) => {
                   <Text style={{color: 'grey', fontWeight: 'bold'}}>
                     {item.date_created.split('T')[0]}
                   </Text>
+                  <Jarak height={30} />
+                  <IconRuang />
                 </View>
               </TouchableOpacity>
               <Jarak height={30} />
@@ -136,4 +139,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     padding: 20,
   },
+  // icons: {
+  //   flexDirection: 'row',
+  // },
+  // iconsSub: {
+  //   flexDirection: 'row',
+  //   marginRight: 15,
+  //   alignItems: 'flex-end',
+  //   justifyContent: 'space-between',
+  // },
 });

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {ModalFilter} from '..';
+import {IconFilter, IconSearch} from '../../../assets/icons';
 import {responsiveHeight} from '../../../utils';
 
 const SearchData = ({onChange, nameAZ, nameZA}) => {
@@ -31,6 +32,7 @@ const SearchData = ({onChange, nameAZ, nameZA}) => {
   return (
     <View style={styles.container}>
       <View style={styles.searchSection}>
+        <IconSearch width={20} height={20} />
         <TextInput
           placeholder="Search..."
           onChangeText={onChange}
@@ -42,7 +44,9 @@ const SearchData = ({onChange, nameAZ, nameZA}) => {
         onPress={() => {
           setModalVisible(!modalVisible);
           // setSentDataToModal(item);
-        }}></TouchableOpacity>
+        }}>
+        <IconFilter width={35} height={35} />
+      </TouchableOpacity>
       <ModalFilter
         open={modalVisible}
         onClose={() => setModalVisible(!modalVisible)}
@@ -82,8 +86,10 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingLeft: 15,
     alignItems: 'center',
+    flexDirection: 'row',
   },
   input: {
+    marginLeft: 5,
     fontSize: 16,
     color: 'black',
     width: '90%',
@@ -94,6 +100,8 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 30,
     borderColor: '#E5E5E5',
     borderLeftWidth: 1,
-    backgroundColor: 'grey',
+    backgroundColor: '#F7F9FC',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

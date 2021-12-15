@@ -1,3 +1,5 @@
 import Jarak from './Jarak';
+import Line from './Line';
+import IconRuang from './iconsRuang';
 
-export {Jarak};
+export {Jarak, Line, IconRuang};
