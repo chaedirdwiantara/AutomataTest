@@ -8,7 +8,7 @@ export const getDataRuma = () => {
     // LOADING
     dispatchLoading(dispatch, GET_DATA_RUMA);
 
-    API.get('products', {per_page: 30})
+    API.get('products', {per_page: 50})
       .then(response => {
         // BERHASIL
         let filterResult = [];

@@ -1,3 +1,3 @@
-import SearchData from './SearchComponent';
+import Jarak from './Jarak';
 
-export {SearchData};
+export {Jarak};

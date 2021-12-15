@@ -12,6 +12,7 @@ const SearchData = ({onChange}) => {
           style={styles.input}
         />
       </View>
+      <View style={styles.filter}></View>
     </View>
   );
 };
@@ -25,14 +26,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     marginBottom: 20,
     width: '90%',
-    // backgroundColor: 'green',
-  },
-  searchSection: {
-    flex: 1,
-    backgroundColor: '#F7F9FC',
+    backgroundColor: 'green',
+    flexDirection: 'row',
     borderRadius: 30,
     borderColor: '#60AF20',
     borderWidth: 1,
+  },
+  searchSection: {
+    flex: 8,
+    backgroundColor: '#F7F9FC',
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
     paddingVertical: 5,
     paddingLeft: 15,
     alignItems: 'center',
@@ -40,6 +44,14 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
     color: 'black',
-    width: '100%',
+    width: '90%',
+  },
+  filter: {
+    flex: 2,
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30,
+    borderColor: '#60AF20',
+    borderLeftWidth: 1,
+    backgroundColor: 'yellow',
   },
 });

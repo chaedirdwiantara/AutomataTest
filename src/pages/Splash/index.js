@@ -5,7 +5,7 @@ const Splash = props => {
   useEffect(() => {
     setTimeout(() => {
       props.navigation.replace('ProductList');
-    }, 3000);
+    }, 300);
   }, []);
   return (
     <View style={styles.pages}>
