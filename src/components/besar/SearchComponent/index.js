@@ -1,8 +1,33 @@
-import React from 'react';
-import {StyleSheet, TextInput, View} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  BackHandler,
+  TouchableOpacity,
+} from 'react-native';
+import {ModalFilter} from '..';
 import {responsiveHeight} from '../../../utils';
 
-const SearchData = ({onChange}) => {
+const SearchData = ({onChange, nameAZ, nameZA}) => {
+  //MODAL SETUP
+  const [modalVisible, setModalVisible] = useState(false);
+  //  const [sentDataToModal, setSentDataToModal] = useState("");
+  const closeModalBack = () => {
+    if (modalVisible != false) {
+      setModalVisible(!modalVisible);
+      return true;
+    }
+    return false;
+  };
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', closeModalBack);
+
+    return () =>
+      BackHandler.removeEventListener('hardwareBackPress', closeModalBack);
+  }, [modalVisible]);
+  //END OF MODAL SETUP
+
   return (
     <View style={styles.container}>
       <View style={styles.searchSection}>
@@ -12,7 +37,19 @@ const SearchData = ({onChange}) => {
           style={styles.input}
         />
       </View>
-      <View style={styles.filter}></View>
+      <TouchableOpacity
+        style={styles.filter}
+        onPress={() => {
+          setModalVisible(!modalVisible);
+          // setSentDataToModal(item);
+        }}></TouchableOpacity>
+      <ModalFilter
+        open={modalVisible}
+        onClose={() => setModalVisible(!modalVisible)}
+        sortNameAZ={nameAZ}
+        sortNameZA={nameZA}
+        // data={sentDataToModal}
+      />
     </View>
   );
 };
