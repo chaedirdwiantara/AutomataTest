@@ -60,9 +60,9 @@ const styles = StyleSheet.create({
   container: {
     height: responsiveHeight(60),
     marginTop: 15,
-    marginHorizontal: 30,
+    // marginHorizontal: 30,
     marginBottom: 20,
-    width: '90%',
+    width: '100%',
     backgroundColor: 'green',
     flexDirection: 'row',
     borderRadius: 30,
