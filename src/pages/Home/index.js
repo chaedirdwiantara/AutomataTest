@@ -6,8 +6,8 @@ import {ListRuma} from '../../components';
 
 const ProductList = props => {
   const dispatch = useDispatch();
-  const DataRumaReducer = useSelector(
-    state => state.DataRumaReducer.getDataRumaResult,
+  const {getDataRumaLoading, getDataRumaResult, getDataRumaError} = useSelector(
+    state => state.DataRumaReducer,
   );
 
   useEffect(() => {
@@ -16,7 +16,12 @@ const ProductList = props => {
 
   return (
     <View style={styles.pages}>
-      <ListRuma DataRuma={DataRumaReducer} navigation={props.navigation} />
+      <ListRuma
+        DataRuma={getDataRumaResult}
+        DataLoading={getDataRumaLoading}
+        DataError={getDataRumaError}
+        navigation={props.navigation}
+      />
     </View>
   );
 };

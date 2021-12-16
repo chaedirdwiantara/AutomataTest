@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   RefreshControl,
+  ActivityIndicator,
 } from 'react-native';
 import {SearchData} from '..';
 import {IconRuang, Jarak} from '../..';
@@ -22,7 +23,7 @@ const wait = timeout => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 };
 
-const ListRuma = ({navigation, DataRuma}) => {
+const ListRuma = ({navigation, DataRuma, DataLoading, DataError}) => {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
@@ -112,6 +113,12 @@ const ListRuma = ({navigation, DataRuma}) => {
             </>
           )}
         />
+      ) : DataLoading ? (
+        <View style={styles.loading}>
+          <ActivityIndicator color={'black'} />
+        </View>
+      ) : DataError ? (
+        <Text>{DataError}</Text>
       ) : (
         <Text>Data Kosong</Text>
       )}
