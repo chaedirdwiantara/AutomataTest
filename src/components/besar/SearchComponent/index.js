@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {ModalFilter} from '..';
 import {IconFilter, IconSearch} from '../../../assets/icons';
-import {responsiveHeight} from '../../../utils';
+import {colors, responsiveHeight} from '../../../utils';
 
 const SearchData = ({onChange, nameAZ, nameZA, dateZA, dateAZ}) => {
   //MODAL SETUP
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   searchSection: {
     flex: 8,
-    backgroundColor: '#F7F9FC',
+    backgroundColor: colors.primary,
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,
     paddingVertical: 5,
@@ -97,9 +97,9 @@ const styles = StyleSheet.create({
     flex: 2,
     borderTopRightRadius: 30,
     borderBottomRightRadius: 30,
-    borderColor: '#E5E5E5',
+    borderColor: colors.border,
     borderLeftWidth: 1,
-    backgroundColor: '#F7F9FC',
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
   },

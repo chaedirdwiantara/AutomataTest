@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {IconAppTitle, IconLogo} from '../../assets';
 import {Jarak} from '../../components';
-import {fonts} from '../../utils';
+import {colors, fonts} from '../../utils';
 
 const Splash = props => {
   useEffect(() => {
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#3985AD',
+    backgroundColor: colors.secondary,
     paddingBottom: 80,
   },
   text: {

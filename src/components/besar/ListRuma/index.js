@@ -18,6 +18,7 @@ import {
   sortNameDSC,
   sortDateDSC,
   fonts,
+  colors,
 } from '../../../utils';
 
 const wait = timeout => {
@@ -169,7 +170,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     width: '100%',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: colors.primary,
     alignItems: 'flex-start',
     padding: 20,
   },

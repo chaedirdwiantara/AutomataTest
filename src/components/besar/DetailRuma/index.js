@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import {IconRuang, Jarak, Line} from '../..';
-import {fonts, responsiveHeight} from '../../../utils';
+import {colors, fonts, responsiveHeight} from '../../../utils';
 
 const DetailRuma = ({DetailRuma}) => {
   return (
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     width: '100%',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: colors.primary,
     alignItems: 'flex-start',
     padding: 20,
   },
