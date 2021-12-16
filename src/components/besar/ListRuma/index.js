@@ -9,20 +9,31 @@ import {
 } from 'react-native';
 import {SearchData} from '..';
 import {IconRuang, Jarak} from '../..';
-import {IconBathroom, IconBed, IconFloor} from '../../../assets/icons';
-import {responsiveHeight, sortNameASC, sortNameDSC} from '../../../utils';
+import {
+  responsiveHeight,
+  sortDateASC,
+  sortNameASC,
+  sortNameDSC,
+  sortDateDSC,
+} from '../../../utils';
 
 const ListRuma = ({navigation, DataRuma}) => {
-  console.log(DataRuma, 'yo ruma');
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState(0);
 
   useEffect(() => {
     if (DataRuma != false) {
-      if (sort == 1) {
-        return sortNameASC(DataRuma);
-      } else if (sort == 2) {
-        return sortNameDSC(DataRuma);
+      switch (sort) {
+        case 1:
+          return sortNameASC(DataRuma);
+        case 2:
+          return sortNameDSC(DataRuma);
+        case 3:
+          return sortDateASC(DataRuma);
+        case 4:
+          return sortDateDSC(DataRuma);
+        default:
+          DataRuma;
       }
     }
   }, [sort, DataRuma]);
@@ -36,6 +47,8 @@ const ListRuma = ({navigation, DataRuma}) => {
         onChange={text => setSearch(text)}
         nameAZ={() => changeIt(1)}
         nameZA={() => changeIt(2)}
+        dateAZ={() => changeIt(3)}
+        dateZA={() => changeIt(4)}
       />
       {DataRuma !== false ? (
         <FlatList

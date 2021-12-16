@@ -10,10 +10,9 @@ import {ModalFilter} from '..';
 import {IconFilter, IconSearch} from '../../../assets/icons';
 import {responsiveHeight} from '../../../utils';
 
-const SearchData = ({onChange, nameAZ, nameZA}) => {
+const SearchData = ({onChange, nameAZ, nameZA, dateZA, dateAZ}) => {
   //MODAL SETUP
   const [modalVisible, setModalVisible] = useState(false);
-  //  const [sentDataToModal, setSentDataToModal] = useState("");
   const closeModalBack = () => {
     if (modalVisible != false) {
       setModalVisible(!modalVisible);
@@ -43,7 +42,6 @@ const SearchData = ({onChange, nameAZ, nameZA}) => {
         style={styles.filter}
         onPress={() => {
           setModalVisible(!modalVisible);
-          // setSentDataToModal(item);
         }}>
         <IconFilter width={35} height={35} />
       </TouchableOpacity>
@@ -52,7 +50,8 @@ const SearchData = ({onChange, nameAZ, nameZA}) => {
         onClose={() => setModalVisible(!modalVisible)}
         sortNameAZ={nameAZ}
         sortNameZA={nameZA}
-        // data={sentDataToModal}
+        sortDateAZ={dateAZ}
+        sortDateZA={dateZA}
       />
     </View>
   );

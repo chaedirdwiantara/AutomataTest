@@ -4,8 +4,6 @@ import {IconRuang, Jarak, Line} from '../..';
 import {responsiveHeight} from '../../../utils';
 
 const DetailRuma = ({DetailRuma}) => {
-  console.log(DetailRuma, 'DetailRuma');
-
   return (
     <View style={styles.container}>
       {DetailRuma !== false ? (

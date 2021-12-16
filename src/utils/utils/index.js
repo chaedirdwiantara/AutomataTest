@@ -15,7 +15,21 @@ export const responsiveHeight = height => {
 };
 
 export const sortDateASC = date => {
-  return date.sort((date1, date2) => date2 - date1);
+  date.sort((a, b) => {
+    const dateA = new Date(a.date_created),
+      dateB = new Date(b.date_created);
+    return dateB - dateA;
+  });
+  console.log(date, 'DATE ASC');
+};
+
+export const sortDateDSC = date => {
+  date.sort((a, b) => {
+    const dateA = new Date(a.date_created),
+      dateB = new Date(b.date_created);
+    return dateA - dateB;
+  });
+  console.log(date, 'DATE DSC');
 };
 
 export const sortNameASC = name => {
