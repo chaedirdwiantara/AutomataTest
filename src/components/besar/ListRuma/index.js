@@ -6,6 +6,7 @@ import {
   View,
   TouchableOpacity,
   Image,
+  RefreshControl,
 } from 'react-native';
 import {SearchData} from '..';
 import {IconRuang, Jarak} from '../..';
@@ -17,12 +18,22 @@ import {
   sortDateDSC,
 } from '../../../utils';
 
+const wait = timeout => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+};
+
 const ListRuma = ({navigation, DataRuma}) => {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(500).then(() => setRefreshing(false));
+  }, []);
 
   useEffect(() => {
-    if (DataRuma != false) {
+    if (DataRuma) {
       switch (sort) {
         case 1:
           return sortNameASC(DataRuma);
@@ -40,6 +51,7 @@ const ListRuma = ({navigation, DataRuma}) => {
 
   const changeIt = item => {
     setSort(item);
+    onRefresh();
   };
   return (
     <View style={styles.container}>
@@ -50,7 +62,7 @@ const ListRuma = ({navigation, DataRuma}) => {
         dateAZ={() => changeIt(3)}
         dateZA={() => changeIt(4)}
       />
-      {DataRuma !== false ? (
+      {DataRuma ? (
         <FlatList
           data={DataRuma?.filter(items => {
             if (search == '') {
@@ -67,6 +79,9 @@ const ListRuma = ({navigation, DataRuma}) => {
           })}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, index) => index.toString()}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
           renderItem={({item}) => (
             <>
               <TouchableOpacity
