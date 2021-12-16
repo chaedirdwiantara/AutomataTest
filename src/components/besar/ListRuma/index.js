@@ -17,6 +17,7 @@ import {
   sortNameASC,
   sortNameDSC,
   sortDateDSC,
+  fonts,
 } from '../../../utils';
 
 const wait = timeout => {
@@ -63,6 +64,7 @@ const ListRuma = ({navigation, DataRuma, DataLoading, DataError}) => {
         dateAZ={() => changeIt(3)}
         dateZA={() => changeIt(4)}
       />
+      <Jarak height={10} />
       {DataRuma ? (
         <FlatList
           data={DataRuma?.filter(items => {
@@ -97,12 +99,10 @@ const ListRuma = ({navigation, DataRuma, DataLoading, DataError}) => {
                   />
                 </View>
                 <View style={styles.desc}>
-                  <Text
-                    numberOfLines={1}
-                    style={{color: 'grey', fontWeight: 'bold', fontSize: 20}}>
-                    {item.name.toUpperCase()}
+                  <Text numberOfLines={1} style={styles.textTitle}>
+                    {item.name}
                   </Text>
-                  <Text style={{color: 'grey', fontWeight: 'bold'}}>
+                  <Text style={styles.text}>
                     {item.date_created.split('T')[0]}
                   </Text>
                   <Jarak height={30} />
@@ -170,17 +170,13 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     width: '100%',
     backgroundColor: '#F5F5F5',
-    // justifyContent: 'space-between',
     alignItems: 'flex-start',
     padding: 20,
   },
-  // icons: {
-  //   flexDirection: 'row',
-  // },
-  // iconsSub: {
-  //   flexDirection: 'row',
-  //   marginRight: 15,
-  //   alignItems: 'flex-end',
-  //   justifyContent: 'space-between',
-  // },
+  textTitle: {
+    color: 'black',
+    fontSize: 24,
+    fontFamily: fonts.primary.semibold,
+  },
+  text: {color: 'black', fontFamily: fonts.primary.regular},
 });

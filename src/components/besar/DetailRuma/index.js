@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import {IconRuang, Jarak, Line} from '../..';
-import {responsiveHeight} from '../../../utils';
+import {fonts, responsiveHeight} from '../../../utils';
 
 const DetailRuma = ({DetailRuma}) => {
   return (
@@ -16,12 +16,10 @@ const DetailRuma = ({DetailRuma}) => {
               />
             </View>
             <View style={styles.desc}>
-              <Text
-                numberOfLines={1}
-                style={{color: 'grey', fontWeight: 'bold', fontSize: 20}}>
-                {DetailRuma.name.toUpperCase()}
+              <Text numberOfLines={1} style={styles.textTitle}>
+                {DetailRuma.name}
               </Text>
-              <Text style={{color: 'grey', fontWeight: 'bold'}}>
+              <Text style={styles.text}>
                 {DetailRuma.date_created.split('T')[0]}
               </Text>
               <Jarak height={20} />
@@ -88,18 +86,31 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   subTitle: {
-    fontWeight: 'bold',
+    color: 'black',
+    fontFamily: fonts.primary.semibold,
     fontSize: 17,
   },
   bigFont: {
-    fontWeight: 'bold',
+    color: 'black',
+    fontFamily: fonts.primary.bold,
     fontSize: 26,
   },
   subCategory: {
     fontSize: 15,
-    fontWeight: 'bold',
+    color: 'black',
+    fontFamily: fonts.primary.regular,
   },
   dataCategory: {
     fontSize: 15,
+    fontFamily: fonts.primary.thin,
+  },
+  textTitle: {
+    color: 'black',
+    fontFamily: fonts.primary.bold,
+    fontSize: 24,
+  },
+  text: {
+    color: 'black',
+    fontFamily: fonts.primary.regular,
   },
 });

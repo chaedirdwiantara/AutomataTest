@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {IconAppTitle, IconLogo} from '../../assets';
 import {Jarak} from '../../components';
+import {fonts} from '../../utils';
 
 const Splash = props => {
   useEffect(() => {
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: fonts.primary.bold,
   },
   footScr: {
     flexDirection: 'row',
